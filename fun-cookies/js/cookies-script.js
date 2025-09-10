@@ -1,29 +1,30 @@
 const cookies = document.querySelector("#cookies");
-const cookiesRejectButton = document.querySelector("#reject");
+const cookiesRejectButtonBorder = document.querySelector("#decline-border");
+const cookiesRejectButton = document.querySelector("#reject")
 const cookiesAcceptButton = document.querySelector("#accept");
 const result = document.querySelector("#result")
-let done =false
+let done = false
 
 setTimeout(() => {
     cookies.style.bottom = "2.5rem";
 
 }, 2000);
 
-let xAmount = "";
-let yAmount = "";
+let xAmount = undefined;
+let yAmount = undefined;
 
-cookiesRejectButton.addEventListener("mouseover", () => {
-
+const move = () => {
     xAmount = Math.random() * 65 + 5;
     yAmount = Math.random() * 75 + 5;
  
+    cookiesRejectButtonBorder.style.position = "fixed";
 
-    cookiesRejectButton.style.position = "fixed"
+    cookiesRejectButtonBorder.style.right = `${xAmount}vw`;
+    cookiesRejectButtonBorder.style.top = `${yAmount}vh`;
+}
 
-    cookiesRejectButton.style.right = `${xAmount}vw`;
-    cookiesRejectButton.style.top = `${yAmount}vh`;
-   
- });
+cookiesRejectButtonBorder.addEventListener("mouseover", move);
+cookiesRejectButton.addEventListener("mouseover", move);
 
  cookiesRejectButton.addEventListener("click", () => {
     cookies.style.bottom = "-100rem";

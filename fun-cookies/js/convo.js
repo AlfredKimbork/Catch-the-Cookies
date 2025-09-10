@@ -28,7 +28,7 @@ setTimeout(() => {
 
 setTimeout(() =>{
     if(done == false) { 
-        reminder.innerHTML = "<h2>Fun fact! I actually did it once.. tho i do think it's just random chance</h2>";
+        reminder.innerHTML = "<h2>Fun fact! I actually did it four times.. tho i do think it's just random chance</h2>";
 
         setTimeout(() =>{
             if(done == false) { 

@@ -72,7 +72,7 @@ span {
 
 button {
     min-width: 12.5rem;
-    margin: 1.5rem .5rem 0;
+    
     padding: 1rem 2rem;
     
     font-size: 1.2rem;
@@ -83,7 +83,7 @@ button {
     
     background-color: #ffffff;
 
-    transition: .8s cubic-bezier(.3,1.46,.65,1);
+   
 }
 
 .cookies-button-container {
@@ -94,11 +94,13 @@ button {
     left: calc(50% - 13.75rem)
 }
 
-#cookies button {
-    position: absolute;  
-}
+
 
 button#accept {
+    position: absolute;  
+
+    margin: 1.5rem .5rem 0;
+
     background-color: #3fdd64;
     color: #ffffff;
     left: 0;
@@ -109,8 +111,18 @@ button#accept {
 button#reject  {
     background-color: #ff5e5e;
     color: #ffffff;
-    right: 0;
+}
 
+#decline-border {
+    position: absolute;
+
+    right: -2rem;
+
+    min-width: 12.5rem;
+    margin: .5rem 0;
+    padding: 1rem 2rem;
+
+    transition: .6s cubic-bezier(.3,1.46,.65,1);
 }
 
 #reminder {
@@ -118,7 +130,7 @@ button#reject  {
 }
 
 
-@media screen and (max-width: 440px) {
+/* @media screen and (max-width: 440px) {
     #cookies {
         height: 12.5rem;
     }
@@ -137,4 +149,4 @@ button#reject  {
        right: calc(50% - 6.25rem);
     
     }
-}
+} */
