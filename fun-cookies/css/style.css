@@ -1,0 +1,140 @@
+* {
+    font-family: monospace;
+    margin: 0;
+}
+
+.typewriter {
+    display: flex;
+    flex-direction: column;
+
+    max-width: fit-content;
+    margin: 6rem auto;
+}
+
+.typewriter h1, .typewriter h2 {
+
+    overflow: hidden;
+    white-space: nowrap;
+
+    border-right: 3px solid #000000;
+
+
+    animation: typing 2s steps(32) forwards, blink 1s step-end infinite;
+}
+
+.typewriter h1 {
+    font-size: clamp(1.25rem, 3.5vw, 3rem);
+}
+
+.typewriter h2 {
+    font-size: clamp(1rem, 2.5vw, 2rem);
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }  
+
+    to {
+        width: 100%;
+    } 
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+span {
+    text-transform: uppercase;
+}
+
+#cookies {
+    position: fixed;
+    height: 6rem;
+
+    width: 50rem;
+    left: calc(50% - 25rem);
+
+    bottom: -100rem;
+    
+
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    text-align: center;
+
+    padding: 1rem 0;
+    box-shadow: 0 0 5px #bebebe;
+    border-radius: .5rem;
+
+    transition: .8s cubic-bezier(.7,.42,.36,1.15);
+}
+
+button {
+    min-width: 12.5rem;
+    margin: 1.5rem .5rem 0;
+    padding: 1rem 2rem;
+    
+    font-size: 1.2rem;
+    
+    border: none;
+    box-shadow: 0 0 5px #bebebe;
+    border-radius: .5rem;
+    
+    background-color: #ffffff;
+
+    transition: .8s cubic-bezier(.3,1.46,.65,1);
+}
+
+.cookies-button-container {
+    position: relative;
+
+    width: 27.5rem;
+    bottom: .75rem; 
+    left: calc(50% - 13.75rem)
+}
+
+#cookies button {
+    position: absolute;  
+}
+
+button#accept {
+    background-color: #3fdd64;
+    color: #ffffff;
+    left: 0;
+
+    transition: .5s ease;
+}
+
+button#reject  {
+    background-color: #ff5e5e;
+    color: #ffffff;
+    right: 0;
+
+}
+
+#reminder {
+   margin-top: 60vh;
+}
+
+
+@media screen and (max-width: 440px) {
+    #cookies {
+        height: 12.5rem;
+    }
+
+    .cookies-button-container {
+        bottom: -40%;
+    }
+
+    button#accept {
+        bottom: 0;
+        right: calc(50% - 6.25rem);
+    }
+    
+    button#reject  {
+       top: 0;
+       right: calc(50% - 6.25rem);
+    
+    }
+}
