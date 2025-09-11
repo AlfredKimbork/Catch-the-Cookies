@@ -1,4 +1,5 @@
 * {
+    box-sizing: border-box;
     font-family: monospace;
     margin: 0;
     user-select: none;
@@ -8,7 +9,7 @@
 body {
    height: 100vh;
    height: 100dvh;
-   margin: 6rem;
+   margin: 6rem .25rem;
 }
 
 .typewriter {
@@ -30,7 +31,7 @@ body {
 }
 
 .typewriter h1 {
-    font-size: clamp(1.25rem, 3.5vw, 3rem);
+    font-size: clamp(1.125rem, 3.5vw, 3rem);
 }
 
 .typewriter h2 {
@@ -38,9 +39,10 @@ body {
 }
 
 .typewriter h2.fast {
-    font-size: clamp(1rem, 2.5vw, 2rem);
-
     animation: typing .5s steps(9) forwards, blink 1s step-end infinite;
+}
+.typewriter h2.hurt {
+    animation: typing .8s steps(14) forwards, blink 1s step-end infinite;
 }
 
 
@@ -70,7 +72,7 @@ span {
 
 #cookies {
     position: fixed;
-    height: 6rem;
+    height: 8rem;
 
     width: 50rem;
     left: calc(50% - 25rem);
@@ -85,11 +87,11 @@ span {
     box-shadow: 0 0 5px #bebebe;
     border-radius: .5rem;
 
-    transition: .8s cubic-bezier(.7,.42,.36,1.15);
+    transition: .5s cubic-bezier(.7,.42,.36,1.15);
 }
 
 button {
-    min-width: 12.5rem;
+    width: 12.5rem;
     
     padding: 1rem 2rem;
     
@@ -126,24 +128,60 @@ button#accept {
     transition: .5s ease;
 }
 
+#decline-border {
+    position: absolute;
+
+    right: 0rem;
+    top: 1rem;
+
+    width: 13.5rem;
+    height: 4.35rem;
+
+    transition: .5s cubic-bezier(.3,1.46,.65,1);
+}
+
+button#reject, .button-background {
+    position: absolute;
+
+    bottom: .5rem;
+    left: .5rem;
+
+    height: 3.35rem;
+    width: 12.5rem;
+
+    transition: .2s ease;
+}
+
 button#reject  {
-    background-color: #ff5e5e;
     color: #ffffff;
+    background-color: transparent;
 
     z-index: 1;
 }
 
-#decline-border {
-    position: absolute;
-
-    right: -2rem;
-
-    min-width: 12.5rem;
-    margin: .5rem 0;
-    padding: 1.5rem 2rem;
-
-    transition: .2s cubic-bezier(.3,1.46,.65,1);
+.button-background {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
 }
+
+.button-background .hp {
+    background-color: #ff5e5e;
+}
+
+.button-background .hp:first-child {
+    border-radius: .5rem 0 0 .5rem;
+}
+
+.button-background .hp:last-child {
+    border-radius: 0 .5rem .5rem 0;
+}
+
+.button-background .gone {
+    background-color: #ff5e5e9d;
+}
+
+
+
 
 /* @media screen and (max-width: 440px) {
     #cookies {

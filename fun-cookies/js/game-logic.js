@@ -1,8 +1,12 @@
 const cookies = document.querySelector("#cookies");
 const cookiesRejectButtonBorder = document.querySelector("#decline-border");
 const cookiesRejectButton = document.querySelector("#reject")
+const cookiesRejectBackground = document.querySelector(".button-background")
 const cookiesAcceptButton = document.querySelector("#accept");
+
 const result = document.querySelector("#result")
+
+
 let done = false
 
 setTimeout(() => {
@@ -21,22 +25,75 @@ const move = () => {
 
     cookiesRejectButtonBorder.style.right = `${xAmount}vw`;
     cookiesRejectButtonBorder.style.top = `${yAmount}vh`;
+
+    // cookiesRejectButton.disabled = true;
+    // setTimeout(() => {
+    //     cookiesRejectButton.disabled = false;
+    // },500)
 }
 
 cookiesRejectButtonBorder.addEventListener("mouseover", move);
 cookiesRejectButton.addEventListener("mouseover", move);
 
- cookiesRejectButton.addEventListener("click", () => {
-    cookies.style.bottom = "-100rem";
-    cookiesRejectButtonBorder.style.top = "100rem";
+let currentHp = 5;
+let hp = undefined
 
-    done = true
+cookiesRejectButton.addEventListener("click", () => {
 
-    reminder.innerHTML = "";
-    result.innerHTML = "<h2>oh wow.. you actually succeeded...</h2>";
-    setTimeout(() => {
-        result.innerHTML = "<h2>was it worth the time tho?</h2>";
-    },5000)
+    move()
+
+    if(currentHp == 1) {
+        cookies.style.bottom = "-100rem"; 
+        cookiesRejectButtonBorder.style.top = "100rem";
+
+        done = true
+
+        let score = i
+    
+        reminder.innerHTML = "";
+        result.innerHTML = "<h2>Bro.. you killed it..</h2>";
+        setTimeout(() => {
+            result.innerHTML = "<h2>Does killing it make you feel better huh?</h2>";
+            setTimeout(() => {
+                result.innerHTML = "<h2>What wrong did it do you?</h2>";
+                setTimeout(() => {
+                    result.innerHTML = "<h2>That's right! NOTHING.. you killed it for no reason..</h2>";
+                    setTimeout(() => {
+                        result.innerHTML = `<h2>Score :: ${score}</h2>`;
+                        
+                    },5000)
+                },5000)
+            },5000)
+        },5000)
+    } else {
+        hp = document.querySelector(`#hp-${currentHp}`)
+        hp.classList.add("gone")
+
+        currentHp--
+
+        cookiesRejectButton.style.transform = "rotate(-10deg)"
+        cookiesRejectBackground.style.transform = "rotate(-10deg)"
+        setTimeout(() => {
+            cookiesRejectButton.style.transform = "rotate(0deg)"
+            cookiesRejectBackground.style.transform = "rotate(0deg)"
+        },50)
+
+        if(currentHp == 1) {
+            result.innerHTML = `<h2 class="hurt">STOP! YOU'RE GOING TO KILL ME!</h2>`;
+            setTimeout(() => {
+                result.innerHTML = "";
+            },2000)
+        } else {
+            result.innerHTML = '<h2 class="hurt">HEY THAT HURT!</h2>';
+            setTimeout(() => {
+                result.innerHTML = "";
+            },1500)
+        }
+
+ 
+        
+    }
+
 
 });
 
