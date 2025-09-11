@@ -51,20 +51,24 @@ cookiesRejectButton.addEventListener("click", () => {
         let score = i
     
         reminder.innerHTML = "";
-        result.innerHTML = "<h2>Bro.. you killed it..</h2>";
+        result.innerHTML = "<h2>...</h2>";
         setTimeout(() => {
-            result.innerHTML = "<h2>Does killing it make you feel better huh?</h2>";
+            result.innerHTML = "<h2>Bro.. you killed it..</h2>";
             setTimeout(() => {
-                result.innerHTML = "<h2>What wrong did it do you?</h2>";
+                result.innerHTML = "<h2>Does killing it make you feel better huh?</h2>";
                 setTimeout(() => {
-                    result.innerHTML = "<h2>That's right! NOTHING.. you killed it for no reason..</h2>";
+                    result.innerHTML = "<h2>What wrong did it do you?</h2>";
                     setTimeout(() => {
-                        result.innerHTML = `<h2>Score :: ${score}</h2>`;
-                        
+                        result.innerHTML = "<h2>That's right! NOTHING.. you killed it for no reason..</h2>";
+                        setTimeout(() => {
+                            result.innerHTML = `<h2>Score :: ${score}</h2>`;
+                            
+                        },5000)
                     },5000)
                 },5000)
             },5000)
-        },5000)
+        }, 5000)
+       
     } else {
         hp = document.querySelector(`#hp-${currentHp}`)
         hp.classList.add("gone")
@@ -79,6 +83,10 @@ cookiesRejectButton.addEventListener("click", () => {
         },50)
 
         if(currentHp == 1) {
+            cookiesRejectButton.innerHTML = "<span></span><span></span>"
+            cookiesRejectButton.style.width = "3.35rem"
+            cookiesRejectBackground.style.width = "3.35rem"
+
             result.innerHTML = `<h2 class="hurt">STOP! YOU'RE GOING TO KILL ME!</h2>`;
             setTimeout(() => {
                 result.innerHTML = "";
